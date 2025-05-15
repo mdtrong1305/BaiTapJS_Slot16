@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Operations</title>
+  <script src="main.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6 font-sans">
+  <div class="max-w-3xl mx-auto bg-white shadow-md p-6 rounded-lg">
+    <h1 class="text-2xl font-bold mb-4 text-center">Quản lý Mảng Số Nguyên</h1>
+
+    <!-- Input thêm số vào mảng -->
+    <div class="flex gap-2 mb-4">
+      <input id="numberInput" type="number" class="border p-2 flex-1 rounded" placeholder="Nhập số nguyên">
+      <button onclick="addNumber()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Thêm</button>
+    </div>
+    <div class="mb-6">
+      <p class="font-semibold">Mảng hiện tại:</p>
+      <p id="arrayDisplay" class="text-gray-700">[]</p>
+    </div>
+
+    <!-- Các câu hỏi -->
+    <div class="space-y-4">
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">1. Tổng các số dương</summary>
+        <button onclick="sumPositive()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Tính</button>
+        <p id="result1" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">2. Đếm số dương</summary>
+        <button onclick="countPositive()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Đếm</button>
+        <p id="result2" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">3. Tìm số nhỏ nhất</summary>
+        <button onclick="findMin()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Tìm</button>
+        <p id="result3" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">4. Tìm số dương nhỏ nhất</summary>
+        <button onclick="findMinPositive()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Tìm</button>
+        <p id="result4" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">5. Tìm số chẵn cuối cùng</summary>
+        <button onclick="findLastEven()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Tìm</button>
+        <p id="result5" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">6. Đổi chỗ 2 vị trí</summary>
+        <div class="mt-2 flex gap-2">
+          <input id="swapIndex1" type="number" class="border p-1 rounded w-1/2" placeholder="Vị trí 1">
+          <input id="swapIndex2" type="number" class="border p-1 rounded w-1/2" placeholder="Vị trí 2">
+        </div>
+        <button onclick="swapPositions()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Đổi chỗ</button>
+        <p id="result6" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">7. Sắp xếp tăng dần</summary>
+        <button onclick="sortArray()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Sắp xếp</button>
+        <p id="result7" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">8. Tìm số nguyên tố đầu tiên</summary>
+        <button onclick="findFirstPrime()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Tìm</button>
+        <p id="result8" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">9. Đếm số nguyên trong mảng số thực</summary>
+        <div class="flex gap-2 mt-2">
+          <input id="floatInput" type="number" step="any" class="border p-2 flex-1 rounded" placeholder="Nhập số thực">
+          <button onclick="addFloat()" class="bg-purple-500 text-white px-4 py-1 rounded">Thêm</button>
+        </div>
+         <p id="arry9" class="mt-2 text-blue-700"></p>
+        <button onclick="countIntegersInFloatArr()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">Đếm</button>
+        <p id="result9" class="mt-2 text-blue-700"></p>
+      </details>
+
+      <details class="border rounded p-4">
+        <summary class="font-semibold cursor-pointer">10. So sánh số dương và số âm</summary>
+        <button onclick="comparePosNeg()" class="mt-2 bg-green-500 text-white px-4 py-1 rounded">So sánh</button>
+        <p id="result10" class="mt-2 text-blue-700"></p>
+      </details>
+    </div>
+  </div>
+</body>
+</html>
