@@ -16,37 +16,46 @@ function addNumber() {
 }
 
 function sumPositive() {
-  const sum = arr.filter(n => n > 0).reduce((a, b) => a + b, 0);
+  let sum = 0 ; 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) sum += arr[i];
+  }
   document.getElementById('result1').textContent = `Tổng số dương: ${sum}`;
 }
 
 function countPositive() {
-  const count = arr.filter(n => n > 0).length;
+  let count = 0 ; 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) count++;
+  }
   document.getElementById('result2').textContent = `Số lượng số dương: ${count}`;
 }
 
 function findMin() {
-  if (arr.length === 0) {
-    document.getElementById('result3').textContent = 'Mảng rỗng.';
-    return;
-  }
-  const min = Math.min(...arr);
+  arr.sort((a, b) => a - b);
+  const min = arr[0];
   document.getElementById('result3').textContent = `Số nhỏ nhất: ${min}`;
 }
 
 function findMinPositive() {
-  const positives = arr.filter(n => n > 0);
-  if (positives.length === 0) {
-    document.getElementById('result4').textContent = 'Không có số dương nào.';
-    return;
+  arr.sort((a, b) => a - b);
+  let min = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      min = arr[i];
+      break;
+    }
   }
-  const min = Math.min(...positives);
   document.getElementById('result4').textContent = `Số dương nhỏ nhất: ${min}`;
 }
 
 function findLastEven() {
-  const even = [...arr].reverse().find(n => n % 2 === 0);
-  const result = even !== undefined ? even : -1;
+  let result = null;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 == 0) {
+      result = arr[i];
+    }
+  }
   document.getElementById('result5').textContent = `Số chẵn cuối cùng: ${result}`;
 }
 
@@ -82,10 +91,16 @@ function isPrime(n) {
 }
 
 function findFirstPrime() {
-  const prime = arr.find(isPrime);
-  const result = prime !== undefined ? prime : -1;
+  let result = -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (isPrime(arr[i])) {
+      result = arr[i];
+      break;
+    }
+  }
   document.getElementById('result8').textContent = `Số nguyên tố đầu tiên: ${result}`;
 }
+
 
 function addFloat() {
   const input = document.getElementById('floatInput');
@@ -98,18 +113,37 @@ function addFloat() {
 }
 
 function countIntegersInFloatArr() {
-  const count = floatArr.filter(Number.isInteger).length;
+  let count = 0;
+  for (let i = 0; i < floatArr.length; i++) {
+    if (Number.isInteger(floatArr[i])) {
+      count++;
+    }
+  }
   document.getElementById('result9').textContent = `Có ${count} số nguyên trong mảng số thực.`;
 }
 
-function comparePosNeg() {
-  const posCount = arr.filter(n => n > 0).length;
-  const negCount = arr.filter(n => n < 0).length;
-  let result = '';
 
-  if (posCount > negCount) result = 'Số dương nhiều hơn.';
-  else if (negCount > posCount) result = 'Số âm nhiều hơn.';
-  else result = 'Số dương và số âm bằng nhau.';
+function comparePosNeg() {
+  let posCount = 0;
+  let negCount = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      posCount++;
+    } else if (arr[i] < 0) {
+      negCount++;
+    }
+  }
+
+  let result = '';
+  if (posCount > negCount) {
+    result = 'Số dương nhiều hơn.';
+  } else if (negCount > posCount) {
+    result = 'Số âm nhiều hơn.';
+  } else {
+    result = 'Số dương và số âm bằng nhau.';
+  }
 
   document.getElementById('result10').textContent = result;
 }
+
